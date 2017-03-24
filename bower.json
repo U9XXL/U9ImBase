@@ -13,9 +13,5 @@
     ".gitignore",
     ".jshintrc",
     "gulpfile.js"
-  ],
-  "dependencies": {
-    "ionic": "~1.2.4",
-    "ngCordova": "~0.1.24-alpha"
-  }
+  ]
 }
