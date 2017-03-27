@@ -13,11 +13,13 @@
      * cfg配置项如下：
      *      - {String} mainAppId 主应用ID，必填
      *      - {String} appId 轻应用ID，必填
+     *      - {number} httpTimeOut http请求超时时间，默认10秒
      *      - {String} pageParam 共享数据，仅调试模式配置
      */
     u9.init = function (cfg) {
         u9.mainAppId = cfg.mainAppId;
         u9.appId = cfg.appId;
+        u9.httpTimeOut = cfg.httpTimeOut || 10000;
 
         if (!window.summer) {
             createGetter(cfg.pageParam || {}, u9);
@@ -50,6 +52,11 @@
  * 数据存储目录获取
  */
  (function (u9) {
+    // 数据缓存目录名
+    u9.dataFolderName = 'data';
+    // 子应用存放目录名
+    u9.appsFolderName = 'apps';
+
     // 获取主应用根目录
     u9.getRootDir = function () {
         if (!window.cordova) {
@@ -62,14 +69,14 @@
         if (!window.cordova) {
             return '';
         }
-        return u9.getRootDir() + 'data/';
+        return u9.getRootDir() + u9.dataFolderName + '/';
     };
     // 获取主应用子应用存放目录
     u9.getAppsDir = function () {
         if (!window.cordova) {
             return '';
         }
-        return u9.getRootDir() + 'apps/';
+        return u9.getRootDir() + u9.appsFolderName + '/';
     };
     // 获取子应用文件绝对路径
     u9.getAbsolutePath = function (src, appId) {
