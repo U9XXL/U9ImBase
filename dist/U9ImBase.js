@@ -30,15 +30,28 @@
         return;
     }
 
-    createGetter(summer.pageParam || {}, u9);
+    summer.on('ready', function () {
+        createGetter(summer.pageParam || {}, u9);
+    });
 
     function createGetter(pageParam, providerObj) {
-        for (var namespace in pageParam) {
-            providerObj[namespace] = get(pageParam[namespace]);
+        var getters = [
+            'Connect', // 连接设置
+            'ServeParam', // 服务器额外配置
+            'User', // 用户信息
+            'Device', // 设备绑定信息
+            'ExtDevices', // 外接串口设备
+            'Token' // Token
+        ];
+        for (var i = getters.length - 1; i >= 0; i--) {
+            providerObj[getters[i]] = get(pageParam[getters[i]]);
         }
 
         function get(obj) {
             return function (key) {
+                if (!obj) {
+                    return null;
+                }
                 if (arguments.length) {
                     return obj[key];
                 }
