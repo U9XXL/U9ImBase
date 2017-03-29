@@ -75,7 +75,7 @@
         if (!window.cordova) {
             return '';
         }
-        return cordova.file.externalRootDirectory || cordova.file.dataDirectory + u9.mainAppId + '/';
+        return (cordova.file.externalRootDirectory || cordova.file.dataDirectory) + u9.mainAppId + '/';
     };
     // 获取主应用数据缓存目录
     u9.getDataDir = function () {
@@ -96,7 +96,7 @@
         if (!window.cordova) {
             return '';
         }
-        return u9.getAppsDir() + appId || u9.appId + '/' + src;
+        return u9.getAppsDir() + (appId || u9.appId) + '/' + src;
     };
  })(window.u9);
 
