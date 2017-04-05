@@ -57,7 +57,7 @@ gulp.task('uglify', () => {
 
 gulp.task('build', () => {
     return new Promise(resolve => {
-        runSequence(['clean', 'lint'], 'scripts', 'uglify', resolve);
+        runSequence('lint', 'scripts', 'uglify', resolve);
     });
 });
 
@@ -67,6 +67,6 @@ gulp.task('gzip', () => {
 
 gulp.task('dist', () => {
     return new Promise(resolve => {
-        runSequence(['clean', 'lint'], 'build', 'gzip', resolve);
+        runSequence('clean', 'build', 'gzip', resolve);
     });
 });
