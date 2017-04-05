@@ -1,3 +1,16 @@
+/*! 
+ * 
+ * Copyright 2017 u9mobile. 
+ * 
+ * U9ImBase, v1.0.0 
+ * 智能工厂移动应用-Base库 
+ * 
+ * By @xuxle 
+ * 
+ * Licensed under the MIT license. Please see LICENSE for more information. 
+ * 
+ */
+
 
 (function () {
     window.u9 = window.u9 || {};

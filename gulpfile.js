@@ -18,6 +18,20 @@ const config = {
     module: 'U9ImBase'
 };
 
+const banner =
+'/*! \n\
+ * \n\
+ * Copyright 2017 u9mobile. \n\
+ * \n\
+ * U9ImBase, v1.0.0 \n\
+ * 智能工厂移动应用-Base库 \n\
+ * \n\
+ * By @xuxle \n\
+ * \n\
+ * Licensed under the MIT license. Please see LICENSE for more information. \n\
+ * \n\
+ */\n\n';
+
 gulp.task('clean', del.bind(null, [config.dist]));
 
 gulp.task('lint', () => {
@@ -29,6 +43,7 @@ gulp.task('lint', () => {
 gulp.task('scripts', () => {
     return gulp.src(path.join(config.src, '/**/*.js'))
         .pipe($.concat(config.module + '.js'))
+        .pipe($.header(banner))
         .pipe(gulp.dest(config.dist));
 });
 
@@ -36,6 +51,7 @@ gulp.task('uglify', () => {
     return gulp.src(path.join(config.dist, '/' + config.module + '.js'))
         .pipe($.rename(config.module + '.min.js'))
         .pipe($.uglify())
+        .pipe($.header(banner))
         .pipe(gulp.dest(config.dist));
 });
 
