@@ -109,7 +109,7 @@
      * cfg配置项如下：
      *      - {String} id 跳转目标轻应用ID，必填
      *      - {String} url 跳转目标轻应用index.html路径，必填，相对路径，相对于目标轻应用
-     *      - {String} pageParam 共享数据，可选，仅配置额外数据，基础共享数据会统一加上
+     *      - {object} pageParam 共享数据，可选，仅配置额外数据，基础共享数据会统一加上
      *      - {String} animation 跳转动画，可选
      */
     u9.openWin = function (cfg) {
