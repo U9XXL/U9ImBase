@@ -10,8 +10,10 @@
     "./dist/U9ImBase.js"
   ],
   "ignore": [
+    ".editorconfig",
     ".gitignore",
     ".jshintrc",
-    "gulpfile.js"
+    "gulpfile.js",
+    "package.json"
   ]
 }
