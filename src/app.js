@@ -41,7 +41,8 @@
             'User', // 用户信息
             'Device', // 设备绑定信息
             'ExtDevices', // 外接串口设备
-            'Token' // Token
+            'Token', // Token
+            'PrintConfig' //打印设置
         ];
         for (var i = getters.length - 1; i >= 0; i--) {
             providerObj[getters[i]] = get(pageParam[getters[i]]);
